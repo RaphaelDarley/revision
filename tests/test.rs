@@ -1,6 +1,7 @@
 use revision::revisioned;
 use revision::Error;
 use revision::Revisioned;
+use std::borrow::Cow;
 use std::num::Wrapping;
 
 #[derive(Debug, PartialEq)]
@@ -324,3 +325,12 @@ fn test_enum() {
 	assert!(result.is_ok());
 	assert_eq!(result.unwrap(), version_final);
 }
+
+#[revisioned(revision = 1)]
+enum Foo<'a> {
+	Bar,
+	Baz(Cow<'a, i32>),
+}
+
+#[test]
+fn lifetime_test() {}

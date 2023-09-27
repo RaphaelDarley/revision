@@ -132,12 +132,13 @@ impl Descriptor for EnumDescriptor {
 	fn reexpand(&self) -> proc_macro2::TokenStream {
 		let vis = &self.vis;
 		let ident = &self.ident;
+		let generics = &self.generics;
 		let attrs = &self.attrs;
 		let fields = self.fields.iter().map(|e| e.reexpand());
 
 		quote! {
 			#(#attrs)*
-			#vis enum #ident {
+			#vis enum #ident #generics {
 				#(#fields,)*
 			}
 		}
