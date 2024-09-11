@@ -13,6 +13,9 @@ documentation = "https://docs.rs/revision/"
 keywords = ["serialization", "encoding", "revision", "version", "bincode"]
 categories = ["encoding"]
 
+[features]
+compact_str = ["dep:compact_str"]
+
 [workspace]
 members = ["derive"]
 
@@ -27,6 +30,7 @@ serde = "1.0.183"
 thiserror = "1.0.44"
 uuid = "1.4.1"
 roaring = { version = "0.10.2", features = ["serde"] }
+compact_str = { version = "0.8.0", optional = true, features = ["serde"] }
 
 [dev-dependencies]
 rand = "0.8.5"

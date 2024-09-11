@@ -2,6 +2,8 @@ pub mod arrays;
 pub mod bound;
 pub mod boxes;
 pub mod chrono;
+#[cfg(feature = "compact_str")]
+pub mod compact_str;
 pub mod cow;
 pub mod decimal;
 pub mod duration;
